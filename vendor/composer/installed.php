@@ -29,9 +29,9 @@
             'dev_requirement' => false,
         ),
         'symfony/http-foundation' => array(
-            'pretty_version' => 'v5.4.15',
-            'version' => '5.4.15.0',
-            'reference' => '75bd663ff2db90141bfb733682459d5bbe9e29c3',
+            'pretty_version' => 'v5.4.16',
+            'version' => '5.4.16.0',
+            'reference' => '5032c5849aef24741e1970cb03511b0dd131d838',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-foundation',
             'aliases' => array(),
