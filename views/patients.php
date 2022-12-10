@@ -7,6 +7,16 @@
     <title>Patients</title>
 </head>
 <body>
-    
+    <section>
+        <h1>My patient</h1>
+        <ul>
+            <li><?php echo $patient->getPatientId(); ?></li>
+            <li><?php echo $patient->getGender(); ?></li>
+            <li><?php echo $patient->getDateOfBirth(); ?></li>
+            <li><?php echo $patient->getDateOfDeath(); ?></li>
+            <li><?php echo $patient->getExpireFlag(); ?></li>
+        </ul>
+        <a href="<?php echo $routes->get('homepage')->getPath(); ?>">Back to homepage</a>
+    <section>
 </body>
 </html>

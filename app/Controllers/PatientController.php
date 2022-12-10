@@ -5,14 +5,14 @@ namespace App\Controllers;
 use App\Models\Patient;
 use Symfony\Component\Routing\RouteCollection;
 
-class ProductController
+class PatientController
 {
     // Show the patient attributes based on the id.
-	public function showAction(string $ipp, RouteCollection $routes)
+	public function showAction(int $id, RouteCollection $routes)
 	{
-        $product = new Product();
-        $product->read($ipp);
+        $patient = new Patient();
+        $patient->read($id);
 
-        require_once APP_ROOT . '/views/product.php';
+        require_once APP_ROOT . '/views/patients.php';
 	}
 }
