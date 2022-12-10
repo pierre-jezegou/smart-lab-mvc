@@ -15,4 +15,9 @@ class Prescription
     public function getALl(){
         
     }
+
+
+    public function changeStatus(string $status){
+        $this->status = $status;
+    }
 }
