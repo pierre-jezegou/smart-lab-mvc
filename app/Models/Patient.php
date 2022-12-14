@@ -44,8 +44,29 @@ class Patient
         close_pdo($pdo);
         return $this;
     }
+    
 
-    public function setDeath($death){
+    public function setDeath(string $death){
         $this->date_of_death = $death;
+    }
+
+    public function setId(string $id){
+        $this->id = $id;
+    }
+
+    public function setGender(string $gender){
+        $this->gender = $gender;
+    }
+
+    public function setDate_of_birth(string $DOB){
+        $this->date_of_birth = $DOB;
+    }
+
+    public function setDate_of_death(string $date_of_death){
+        $this->date_of_death = $date_of_death;
+    }
+
+    public function setExpire_flag(string $expire_flag){
+        $this->expire_flag = $expire_flag;
     }
 }

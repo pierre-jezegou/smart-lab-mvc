@@ -19,5 +19,5 @@
             <a href="<?php echo $Patient ?>">Check the first product</a>
         </p>
     <section>
-
+    <?php var_dump($_SESSION)?>
 </html>

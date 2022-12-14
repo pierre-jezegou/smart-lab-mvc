@@ -8,15 +8,13 @@
 </head>
 <body>
     <section>
-        <h1>My patient</h1>
+        <h1>My patients</h1>
+        <?php foreach($patients->patients_data as $patient):?>
         <ul>
-            <li><?php echo $patient->getPatientId(); ?></li>
-            <li><?php echo $patient->getGender(); ?></li>
-            <li><?php echo $patient->getDateOfBirth(); ?></li>
-            <li><?php echo $patient->getDateOfDeath(); ?></li>
-            <li><?php echo $patient->getExpireFlag(); ?></li>
+            <li><?php echo $patient->getPatientId()." - ".$patient->getGender().$patient->getDateOfBirth().$patient->getDateOfDeath();?></li>
         </ul>
-        <a href="<?php echo $routes->get('homepage')->getPath(); ?>">Back to homepage</a>
+        <?php endforeach;?>
+        <?php include("../views/links.php");?>
     <section>
 </body>
 </html>

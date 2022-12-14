@@ -20,13 +20,16 @@ class LoginController
     public function loginRedirection(){
         $result = $this->pharmacist->getLogin();
         if($result===1){
-            // $_SESSION["username"]=$this->pharmacist->getUsername();
+            header('location: /');
+            $_SESSION["username"]=$this->pharmacist->getUsername();
             $_SESSION["full_name"]=$this->pharmacist->getFullName();
-            echo($_SESSION["full_name"]);
+            $_SESSION["isLogged"]=true;
+            $_SESSION["admin"]=$this->pharmacist->getAdmin();
+            echo("connexion ok");
         }
         else{
-            echo("nok");
-            $res = 'bkjsd';
+            $_SESSION["isLogged"]=false;
+            echo "connexion nok";
         }
     }
 
