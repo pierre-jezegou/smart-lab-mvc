@@ -3,7 +3,7 @@
 <section class="login">
     <div class="container">
         <form class="login_form" action="logincheck" method="POST">
-            <h1>SmartIA</h1>
+            <h1>SmartLab</h1>
             <div class="username">
                 <label>Identifiant</label>
                 <input class="champs_saisie" type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
