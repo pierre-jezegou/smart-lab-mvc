@@ -1,6 +1,0 @@
-Bonjour,
-Voici les codes pour vous connecter à l'interface Web de SmartLab.
-Vos identifiants sont uniques. Pour plus d'informations, contactez Pierre Jézégou (pierre.jezegou@centrale.centralelille.fr)
-username : 
-password : 
-Adresse web de l'interface : pjezegou.rezoleo.fr:8080

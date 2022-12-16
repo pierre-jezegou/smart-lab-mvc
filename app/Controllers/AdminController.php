@@ -3,11 +3,13 @@
 namespace App\Controllers;
 use Symfony\Component\Routing\RouteCollection;
 
-class AlertsController
+class AdminController
 {
     // Homepage action
 	public function indexAction(RouteCollection $routes)
 	{
-        require_once APP_ROOT . '/views/alerts.php';
+		include('../config/redirectionAdmin.php');
+
+        require_once APP_ROOT . '/views/admin.php';
 	}
 }

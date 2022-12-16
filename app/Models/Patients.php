@@ -11,7 +11,7 @@ class Patients
     // GET METHODS
     public function getAllPatients(){
         $pdo = connect_database();
-        $query = "SELECT * FROM `patients` LIMIT 10;";
+        $query = "SELECT * FROM `patients` LIMIT 20;";
         $datas = $pdo->query($query)->fetchall();
         $patients = array();
         foreach($datas as $data){
@@ -21,6 +21,8 @@ class Patients
             $patient_temp->setDate_of_birth($data["date_of_birth"]);
             $patient_temp->setDate_of_death($data["date_of_death"]);
             $patient_temp->setExpire_flag($data["date_of_death_hosp"]);
+            $patient_temp->setName(ucwords($data["name"]));
+            $patient_temp->setSurname(ucwords($data["surname"]));
             array_push($patients, $patient_temp);
         }
         $this->patients_data = $patients;

@@ -5,19 +5,48 @@ class Patient
 {
     protected $row_id;
     protected $id;
+    protected $name;
+    protected $surname;
     protected $gender;
     protected $date_of_birth;
     protected $date_of_death;
     protected $date_of_death_hosp;
     protected $expire_flag;
+    protected $followed;
 
     // GET METHODS
     public function getPatientId(){
         return $this->id;
     }
 
+    public function getName(){
+        return $this->name;
+    }
+
+    public function getSurname(){
+        return $this->surname;
+    }
+
     public function getGender(){
         return $this->gender;
+    }
+
+    public function getGenderInfos($gender_letter){
+        if($gender_letter==="M"){
+            $data = array(
+                'color'=>"blue",
+                'fullletter'=>"Masculin",
+                'icon'=>'male'
+            );
+        }
+        if($gender_letter==="F"){
+            $data = array(
+                'color'=>"pink",
+                'fullletter'=>"Féminin",
+                'icon'=>'female'
+            );
+        }
+        return $data;
     }
 
     public function getDateOfBirth(){
@@ -32,6 +61,10 @@ class Patient
         return $this->expire_flag;
     }
 
+    public function followed(){
+        return $this->followed;
+    }
+
     public function read($id){
         // require_once(A'')
         $pdo = connect_database();
@@ -44,7 +77,15 @@ class Patient
         close_pdo($pdo);
         return $this;
     }
-    
+
+    public function setName(string $name){
+        $this->name = $name;
+    }
+
+    public function setSurname(string $surname){
+        $this->surname = $surname;
+    }
+
 
     public function setDeath(string $death){
         $this->date_of_death = $death;

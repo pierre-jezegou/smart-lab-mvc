@@ -4,7 +4,7 @@
 <section class="page_patients table_page">
     <section>
         <div class="header">
-            <h1>Liste des patients</h1>
+            <h1>Liste des alertes</h1>
             <div class="description">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
             </div>
@@ -36,12 +36,11 @@
                         <td class="simple-item"><div class="icon <?php if($restantes>0) echo("green");?>"><?php if($restantes>0) echo($restantes);else echo("-");?></div></td>
                         <td><?php echo $patient->getName();?></td>
                         <td><?php echo $patient->getSurname();?></td>
-                        <td class="ipp_iep"><?php echo $patient->getPatientId();?></td>
+                        <td class="ipp_iep"><?php $patient->getPatientId();?></td>
                         <td class="icon_text">Service</td>
                         <td><?php $age = 59; echo($age);?></td>
-                        <?php $gender_infos = $patient->getGenderInfos($patient->getGender());?>
-                        <td class="icon_text"><span class="icon material-symbols-outlined <?=$gender_infos['color']?>"><?=$gender_infos['icon']?></span>
-                        <div><?=$gender_infos['fullletter']?></div>
+                        <td class="icon_text"><span class="icon material-symbols-outlined blue">male</span>
+                        <div>Masculin</div>
                         </td>
                         <td><?php echo $patient->followed();?></td>
                         <td><?php echo "start";?></td>

@@ -1,0 +1,58 @@
+.
+├── app
+│   ├── Controllers
+│   │   ├── AdminController.php
+│   │   ├── AlertController.php
+│   │   ├── AlertsController.php
+│   │   ├── LoginController.php
+│   │   ├── MonitoringController.php
+│   │   ├── PageController.php
+│   │   ├── PatientController.php
+│   │   ├── PatientsController.php
+│   │   ├── RegisterController.php
+│   │   └── ResetpasswordController.php
+│   ├── Models
+│   │   ├── Patient.php
+│   │   ├── Patients.php
+│   │   ├── Pharmacist.php
+│   │   └── Precription.php
+│   └── Router.php
+├── composer.json
+├── composer.lock
+├── config
+│   ├── config.php
+│   ├── redirectionAdmin.php
+│   └── redirectionLogin.php
+├── public
+│   ├── css
+│   │   ├── style.css
+│   │   ├── style.css.map
+│   │   └── style.scss
+│   ├── fonts
+│   ├── images
+│   │   ├── avatar.png
+│   │   └── favicon.ico
+│   ├── index.php
+│   └── js
+│       └── script.js
+├── routes
+│   └── web.php
+├── tree.txt
+└── views
+    ├── 404.php
+    ├── admin.php
+    ├── alerts.php
+    ├── footer.php
+    ├── header.php
+    ├── home.php
+    ├── layout.php
+    ├── links.php
+    ├── login.php
+    ├── monitoring.php
+    ├── patient.php
+    ├── patients.php
+    ├── register.php
+    ├── reset_password_done.php
+    └── reset_password.php
+
+11 directories, 44 files

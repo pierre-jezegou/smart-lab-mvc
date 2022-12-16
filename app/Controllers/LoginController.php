@@ -10,11 +10,12 @@ class LoginController
     // Homepage action
 	public function indexAction(RouteCollection $routes)
 	{
-        $this->pharmacist = new Pharmacist;
-        $this->loginRedirection();
         require_once APP_ROOT . '/views/login.php';
 	}
-
+    public function logincheck(){
+        $this->pharmacist = new Pharmacist;
+        $this->loginRedirection();
+    }
 
 
     public function loginRedirection(){
@@ -23,17 +24,19 @@ class LoginController
             header('location: /');
             $_SESSION["username"]=$this->pharmacist->getUsername();
             $_SESSION["full_name"]=$this->pharmacist->getFullName();
+            $_SESSION["function"]=$this->pharmacist->getFunction();
             $_SESSION["isLogged"]=true;
             $_SESSION["admin"]=$this->pharmacist->getAdmin();
-            echo("connexion ok");
+            $_SESSION["last_connection"]=date("d/m/Y - H:i:s");
         }
         else{
             $_SESSION["isLogged"]=false;
-            echo "connexion nok";
+            header("location: /login");
         }
     }
 
     public function deconnect(){
         session_destroy();
+        header("location: /login");
     }
 }
