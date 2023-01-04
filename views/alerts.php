@@ -10,45 +10,50 @@
             </div>
         </div>
         <div class="scrollable">
-            <table class="patient_table">
-                <thead>
-                    <tr class="ligne">
-                        <th>Check</th>
-                        <th>Alerte</th>
-                        <th>Attente</th>
-                        <th>Prénom</th>
-                        <th>Nom</th>
-                        <th>ipp / iep</th>
-                        <th>Service</th>
-                        <th>Age</th>
-                        <th>Sexe</th>
-                        <th>Suivi</th>
-                        <th>Date entrée</th>
-                        <th>Date sortie</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php foreach($patients->patients_data as $patient):?>
-                    <tr>
-                        <td><a href="patient/<?php echo $patient->getPatientId();?>" class="link_patient"><span class="icon secondary material-symbols-outlined">fact_check</span></a></td>
-                        <?php $alerts = rand(0,9); $restantes = rand(0,9);?>
-                        <td class="simple-item"><div class="icon <?php if($alerts>0) echo("red");?>"><?php if($alerts>0) echo($alerts);else echo("-");?></div></td>
-                        <td class="simple-item"><div class="icon <?php if($restantes>0) echo("green");?>"><?php if($restantes>0) echo($restantes);else echo("-");?></div></td>
-                        <td><?php echo $patient->getName();?></td>
-                        <td><?php echo $patient->getSurname();?></td>
-                        <td class="ipp_iep"><?php $patient->getPatientId();?></td>
-                        <td class="icon_text">Service</td>
-                        <td><?php $age = 59; echo($age);?></td>
-                        <td class="icon_text"><span class="icon material-symbols-outlined blue">male</span>
-                        <div>Masculin</div>
-                        </td>
-                        <td><?php echo $patient->followed();?></td>
-                        <td><?php echo "start";?></td>
-                        <td><?php echo "end";?></td>
-                    </tr>
-                <?php endforeach;?>
-                </tbody>
-            </table>
+        <table class="prescriptions_table">
+                    <thead>
+                        <tr class="ligne">
+                            <th>Alerte</th>
+                            <th>id</th>
+                            <th>N° Patient</th>
+                            <th>Nom & Prénom</th>
+                            <th>Date Naissance</th>
+                            <th>Sexe</th>
+                            <th>Date début de prise</th>
+                            <th>Medicament</th>
+                            <th>Posologie</th>
+                            <th>Fréquence</th>
+                            <th>Statut</th>
+                            <th>IP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($prescriptions->prescriptions_data as $line):?>
+                        <?php
+                            $prescription = $line[0];
+                            $patient = $line[1];
+                        ?>
+                        <tr class="<?php if($prescription->getStatus()==="Invalide")"cancelled"?>">
+                            <?php $alerts = $prescription->getAlert();?>
+                            <td class="simple-item"><span class="icon <?php if($alerts>0) echo("red"); else echo("green");?> material-symbols-outlined alert"><?php if($alerts>0) echo('error');else echo("priority_high");?></span></td>
+                            <td class="id_prescription"><?= $prescription->getRowId()?></td>
+                            <td class="id_prescription"><?= $prescription->getSubject()?></td>
+                            <td><?= $patient->getFullName()?></td>
+                            <td><?= $patient->getDateOfDeath()?></td>
+                            <?php $gender_infos = $patient->getGenderInfos($patient->getGender());?>
+                            <td class="icon_text"><span class="icon material-symbols-outlined <?=$gender_infos['color']?>"><?=$gender_infos['icon']?></span>
+                                <div><?=$gender_infos['fullletter']?></div>
+                            </td>
+                            <td><?= $prescription->getStart()?></td>
+                            <td><?= $prescription->getDrug()?> <p class="secondary"><?=$prescription->getStrenght()?></p></td>
+                            <td><?= $prescription->getCompleteDose()?></td>
+                            <td><?php echo("-");?></td>
+                            <td><?= $prescription->getStatus()?></td>
+                            <td><?= $prescription->getComment()?></td>
+                        </tr>
+                    <?php endforeach;?>    
+                    </tbody>
+                </table>
         </div>
     </section>
 </section>

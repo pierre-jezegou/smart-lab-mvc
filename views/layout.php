@@ -11,7 +11,9 @@
 
    <body>
       <?php include('header.php');?>
-      <?php echo $content;?>
+      <section class="page-content">
+         <?php echo $content;?>
+      </section>
       <?php include('footer.php');?>
    </body>
    <script src="../public/js/script.js"></script>

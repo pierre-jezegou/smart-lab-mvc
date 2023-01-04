@@ -11,7 +11,7 @@ class Patients
     // GET METHODS
     public function getAllPatients(){
         $pdo = connect_database();
-        $query = "SELECT * FROM `patients` LIMIT 20;";
+        $query = "SELECT * FROM `patients` LIMIT 25;";
         $datas = $pdo->query($query)->fetchall();
         $patients = array();
         foreach($datas as $data){

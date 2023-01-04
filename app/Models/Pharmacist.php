@@ -172,6 +172,6 @@ class Pharmacist
         var_dump($postdata);
 
         $context = stream_context_create($opts);
-        $result = file_get_contents('http://192.168.0.21:8000/welcome/', false, $context);
+        $result = file_get_contents('http://projet-livinglab.rezoleo.fr:8000/welcome/', false, $context);
     }
 }

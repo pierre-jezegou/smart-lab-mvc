@@ -11,6 +11,11 @@ $routes->add('patient', new Route(constant('URL_SUBFOLDER') . '/patient/{id}', a
 $routes->add('alert', new Route(constant('URL_SUBFOLDER') . '/alert/{id}', array('controller' => 'AlertController', 'method'=>'showAction'), array('id' => '[0-9]+')));
 $routes->add('alerts', new Route(constant('URL_SUBFOLDER') . '/alerts', array('controller' => 'AlertsController', 'method'=>'indexAction'), array()));
 $routes->add('patients', new Route(constant('URL_SUBFOLDER') . '/patients', array('controller' => 'PatientsController', 'method'=>'indexAction'), array()));
+
+$routes->add('precription', new Route(constant('URL_SUBFOLDER') . '/prescription/{id}', array('controller' => 'PrescriptionController', 'method'=>'indexAction'), array()));
+$routes->add('edit_prescription', new Route(constant('URL_SUBFOLDER') . '/prescriptions/{id}/edit', array('controller' => 'EditPrescriptionController', 'method'=>'indexAction'), array()));
+
+
 //Pages administrateur & utilitaire
 $routes->add('login', new Route(constant('URL_SUBFOLDER') . '/login', array('controller' => 'LoginController', 'method'=>'indexAction'), array()));
 $routes->add('reset_password', new Route(constant('URL_SUBFOLDER') . '/reset_password', array('controller' => 'ResetpasswordController', 'method'=>'indexAction'), array()));

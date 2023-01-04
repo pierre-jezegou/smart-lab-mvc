@@ -56,9 +56,9 @@
             'dev_requirement' => false,
         ),
         'symfony/routing' => array(
-            'pretty_version' => 'v5.4.15',
-            'version' => '5.4.15.0',
-            'reference' => '5c9b129efe9abce9470e384bf65d8a7e262eee69',
+            'pretty_version' => 'v5.4.17',
+            'version' => '5.4.17.0',
+            'reference' => '4ce2df9a469c19ba45ca6aca04fec1c358a6e791',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/routing',
             'aliases' => array(),

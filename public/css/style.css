@@ -6,10 +6,20 @@
   text-align: justify;
   color: black; }
 
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0; }
+
 body {
   background-color: #cce8e2;
   display: flex;
   flex-direction: column; }
+  body .page-content {
+    flex: auto;
+    display: flex;
+    flex-direction: column; }
 
 header {
   align-items: center;
@@ -212,12 +222,8 @@ section.login {
 
 /* FOOTER */
 footer {
-  /* background-color: red; */
-  position: fixed;
   bottom: 0;
   background-color: white;
-  bottom: 0;
-  left: 0;
   min-width: 100%;
   display: flex;
   color: gray;
@@ -313,8 +319,11 @@ section.table_page {
   margin: 2%;
   padding: 2rem;
   border-radius: 1rem;
-  height: 100%; }
+  flex: auto;
+  display: flex;
+  flex-direction: column; }
   section.table_page .header h1 {
+    font-size: x-large;
     padding-bottom: 0.2em; }
   section.table_page .header .description {
     color: #b0b0b0;
@@ -323,9 +332,9 @@ section.table_page {
     padding-bottom: 2em; }
   section.table_page .scrollable {
     overflow-x: scroll;
-    max-height: 450px;
-    width: 100%;
-    overflow-y: scroll; }
+    overflow-y: scroll;
+    flex: auto;
+    width: 100%; }
     section.table_page .scrollable table {
       overflow: auto;
       line-height: 1em;
@@ -345,6 +354,8 @@ section.table_page {
           background-color: #f3f3f3; }
         section.table_page .scrollable table tbody tr:hover {
           background-color: #ffdcc8; }
+        section.table_page .scrollable table tbody tr.cancelled {
+          text-decoration: line-through; }
         section.table_page .scrollable table tbody tr .icon {
           display: flex;
           flex-direction: column;
@@ -369,7 +380,10 @@ section.table_page {
           color: #bf8900;
           background-color: #ffd6ac; }
         section.table_page .scrollable table tbody tr .secondary {
-          color: gray; }
+          color: gray;
+          font-size: small; }
+        section.table_page .scrollable table tbody tr .alert {
+          font-size: medium; }
         section.table_page .scrollable table tbody tr .icon_text {
           display: flex; }
           section.table_page .scrollable table tbody tr .icon_text span {
@@ -461,5 +475,169 @@ section.information {
       section.information div.container div strong {
         font-weight: normal;
         color: #1A9988; }
+
+.page_patient {
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column; }
+  .page_patient .partient_informations {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1em; }
+    .page_patient .partient_informations .left-side {
+      display: flex;
+      flex-direction: row;
+      padding-inline: 0.5em;
+      border-radius: 0.3em;
+      background-color: #EB5600;
+      line-height: 2em;
+      vertical-align: bottom; }
+      .page_patient .partient_informations .left-side p {
+        color: white;
+        font-weight: bold; }
+      .page_patient .partient_informations .left-side .icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 1em;
+        color: white; }
+    .page_patient .partient_informations .right-side {
+      display: flex;
+      flex-direction: row; }
+      .page_patient .partient_informations .right-side a {
+        background-color: white;
+        border: none;
+        border-radius: 0.5em;
+        padding: 0.3em 0.75em;
+        margin-inline: 0.25em;
+        display: flex;
+        flex-direction: row;
+        justify-content: center; }
+      .page_patient .partient_informations .right-side .text {
+        color: gray;
+        font-size: small;
+        margin-left: 0.5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around; }
+      .page_patient .partient_informations .right-side .icon {
+        color: gray; }
+  .page_patient section.patient_data {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 0.9em;
+    margin-bottom: 1em; }
+    .page_patient section.patient_data .patient_data_element {
+      background-color: white;
+      border: none;
+      border-radius: 0.5em;
+      padding: 0.75em 0.75em;
+      margin-right: 0.5em;
+      display: flex;
+      flex-direction: row;
+      justify-content: center; }
+      .page_patient section.patient_data .patient_data_element .icon {
+        font-size: 2em;
+        padding: 0.1em;
+        color: #1A9988;
+        border-radius: 0.3em;
+        background-color: #d0ebe7; }
+      .page_patient section.patient_data .patient_data_element .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 1em; }
+        .page_patient section.patient_data .patient_data_element .text .nomenclature {
+          text-transform: uppercase;
+          color: gray; }
+        .page_patient section.patient_data .patient_data_element .text .data {
+          display: flex;
+          vertical-align: bottom;
+          font-weight: 500; }
+          .page_patient section.patient_data .patient_data_element .text .data.ipp_iep {
+            font-size: x-small; }
+          .page_patient section.patient_data .patient_data_element .text .data .unit {
+            color: gray;
+            font-size: small;
+            margin-inline: 0.2rem; }
+  .page_patient section.prescriptions {
+    flex: auto; }
+    .page_patient section.prescriptions section.table_page {
+      margin: 0;
+      border-radius: 0;
+      width: 100%;
+      line-height: 2rem;
+      background-color: white; }
+      .page_patient section.prescriptions section.table_page tr, .page_patient section.prescriptions section.table_page td {
+        height: 2rem; }
+  .page_patient .prescriptions_data {
+    /* height: 500px; */
+    /* width: auto; */
+    overflow: auto;
+    border-radius: 0.5em;
+    background-color: white;
+    display: flex;
+    flex: row;
+    /* overflow: hidden */ }
+  .page_patient .prescriptions_data .sidebar {
+    width: 450px;
+    border-right: 1px solid #c1c1c1; }
+  .page_patient .prescriptions_data .sidebar .title {
+    font-size: large;
+    font-weight: bold;
+    border-bottom: 1px solid #c1c1c1;
+    padding: 1em; }
+  .page_patient .prescriptions_data .sidebar .scrollable {
+    overflow-y: scroll;
+    overflow-x: scroll;
+    flex: auto;
+    padding: 1em; }
+  .page_patient .prescriptions_data .sidebar .labo_data {
+    /* display: flex; */
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 5px 0.5px #bcbbbb;
+    border-left: #EB5600 5px solid;
+    margin-bottom: 0.75em; }
+  .page_patient .prescriptions_data .sidebar .labo_data .texte {
+    font-size: small; }
+  .page_patient .prescriptions_data .sidebar .labo_data .texte .line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: red; */ }
+
+div.error_container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 4rem 2rem;
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+  margin: auto;
+  box-shadow: 0 0 5px gray; }
+  div.error_container * {
+    color: #1A9988;
+    text-align: center;
+    line-height: 2rem; }
+  div.error_container h1 {
+    font-weight: lighter;
+    font-size: 50px;
+    margin-bottom: 2rem; }
+  div.error_container p {
+    font-size: small; }
+  div.error_container button {
+    background-color: #EB5600;
+    width: 100%;
+    border-radius: 0.5rem;
+    color: white;
+    padding-block: 0.5rem;
+    text-align: center;
+    border: none; }
+    div.error_container button:hover {
+      background-color: #d24d00; }
 
 /*# sourceMappingURL=style.css.map */

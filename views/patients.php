@@ -31,7 +31,7 @@
                 <?php foreach($patients->patients_data as $patient):?>
                     <tr>
                         <td><a href="patient/<?php echo $patient->getPatientId();?>" class="link_patient"><span class="icon secondary material-symbols-outlined">fact_check</span></a></td>
-                        <?php $alerts = rand(0,9); $restantes = rand(0,9);?>
+                        <?php $alerts = $patient->getNumberAlerts(); $restantes = $patient->getRemainingPrescriptions();?>
                         <td class="simple-item"><div class="icon <?php if($alerts>0) echo("red");?>"><?php if($alerts>0) echo($alerts);else echo("-");?></div></td>
                         <td class="simple-item"><div class="icon <?php if($restantes>0) echo("green");?>"><?php if($restantes>0) echo($restantes);else echo("-");?></div></td>
                         <td><?php echo $patient->getName();?></td>

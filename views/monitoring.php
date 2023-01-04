@@ -13,7 +13,7 @@
                     for($i = $ping_sillage+1; $i<=10; $i++) echo("<div class='graphic_item gray'></div>")
                     ?>
                 </div>
-                <div class="pourcentage">95%</div>
+                <div class="pourcentage"><?=$ping_sillage*10?> %</div>
             </div>
             <div class="text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

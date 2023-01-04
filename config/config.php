@@ -8,7 +8,7 @@ define('URL_ROOT', '/');
 define('URL_SUBFOLDER', '');
 
 //DB Params
-define('DB_HOST', '192.168.0.21');
+define('DB_HOST', '10.17.6.12');
 define('DB_USERNAME', 'smartlab');
 define('DB_PASSWORD', 'SmartLab2022');
 define('DB_NAME', 'smartlab');

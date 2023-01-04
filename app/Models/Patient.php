@@ -27,6 +27,10 @@ class Patient
         return $this->surname;
     }
 
+    public function getFullName(){
+        return ucfirst($this->name) . " " . strtoupper($this->surname);
+    }
+
     public function getGender(){
         return $this->gender;
     }
@@ -65,16 +69,34 @@ class Patient
         return $this->followed;
     }
 
+    public function getNumberAlerts(){
+        $pdo = connect_database();
+        $query = "SELECT COUNT(*) FROM `prescriptions` JOIN `alerts` ON row_id=prescription_id WHERE subject_id=".$this->getPatientId()." AND alert=1";
+        $data = $pdo->query($query)->fetch();
+        return $data["COUNT(*)"];
+    }
+
+    public function getRemainingPrescriptions(){
+        $pdo = connect_database();
+        $query = "SELECT COUNT(*) FROM `prescriptions` WHERE subject_id=".$this->getPatientId()." AND status=''";
+        $data = $pdo->query($query)->fetch();
+        return $data["COUNT(*)"];
+    }
+    
+
     public function read($id){
         // require_once(A'')
         $pdo = connect_database();
         $query = "SELECT * FROM `patients` WHERE subject_id=" . $id .";";
         $data = $pdo->query($query)->fetch();
+        $this->row_id = $data["row_id"];
+        $this->id = intval($data["subject_id"]);
+        $this->name = $data["name"];
+        $this->surname = $data["surname"];
         $this->gender = $data["gender"];
         $this->date_of_birth = $data["date_of_birth"];
         $this->date_of_death = $data["date_of_death"];
         $this->expire_flag = $data["date_of_death_hosp"];
-        close_pdo($pdo);
         return $this;
     }
 
