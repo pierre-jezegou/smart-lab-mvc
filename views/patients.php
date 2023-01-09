@@ -18,7 +18,7 @@
                         <th>Attente</th>
                         <th>Prénom</th>
                         <th>Nom</th>
-                        <th>ipp / iep</th>
+                        <th>id Patient / HADM</th>
                         <th>Service</th>
                         <th>Age</th>
                         <th>Sexe</th>

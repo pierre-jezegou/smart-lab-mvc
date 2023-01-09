@@ -3,7 +3,10 @@ namespace App\Controllers;
 
 
 use App\Models\Patient;
+use App\Models\Admission;
 use App\Models\Prescriptions;
+use App\Models\Events;
+
 use Symfony\Component\Routing\RouteCollection;
 
 class PatientController
@@ -16,6 +19,11 @@ class PatientController
         $patient->read($id);
         $prescriptions = new Prescriptions;
         $prescriptions->getAllPrescriptions($id);
+        $lastAdmission = new Admission;
+        $lastAdmission->getLastAdmissionById($id);
+        $events = new Events();
+        $events->getAllEvents($id);
+
         require_once APP_ROOT . '/views/patient.php';
 	}
 }

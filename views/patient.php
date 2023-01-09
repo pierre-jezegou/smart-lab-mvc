@@ -10,6 +10,12 @@
             <p><?=$patient->getFullName();?></p>
         </a>
         <div class="right-side">
+            <?php if(!($lastAdmission->getDeathTime()==null)):?>
+            <a class="red">
+                <span class="icon material-symbols-outlined">problem</span>
+                <div class="text">Mort le : <?= $lastAdmission->getDeathTime()?></div>
+            </a>
+            <?php endif;?>
             <a>
                 <span class="icon material-symbols-outlined">person</span>
                 <div class="text">Données patient</div>
@@ -41,7 +47,7 @@
             <div class="text">
                 <div class="nomenclature">ipp/iep</div>
                 <div class="data ipp_iep">
-                    <?=$patient->getPatientId()?>
+                    <?=$patient->getPatientId() ."/". $lastAdmission->getAdmissionId()?>
                 </div>
             </div>
         </div>
@@ -61,7 +67,7 @@
             <div class="text">
                 <div class="nomenclature">Poids/Taille</div>
                 <div class="data">
-                    78 <span class="unit">kg</span> / 171 <span class="unit">cm</span>
+                    <?=$patient->getWeight()?> <span class="unit">kg</span> / 171 <span class="unit">cm</span>
                 </div>
             </div>
             
@@ -70,9 +76,9 @@
         <div class="patient_data_element">
             <span class="icon material-symbols-outlined">medical_information</span>
             <div class="text">
-                <div class="nomenclature">Informations</div>
+                <div class="nomenclature">Admission</div>
                 <div class="data">
-                    Informations
+                    <?= ucfirst(strtolower($lastAdmission->getAdmissionType()))?>
                 </div>
             </div>
         </div>
@@ -92,7 +98,7 @@
             <div class="text">
                 <div class="nomenclature">Créatinine</div>
                 <div class="data">
-                    Créatinine  
+                    <?= $patient->getLastCreatinine()?>  
                 </div>
             </div>
         </div>
@@ -102,7 +108,7 @@
             <div class="text">
                 <div class="nomenclature">Signes vitaux</div>
                 <div class="data">
-                    Signes vitaux  
+                    <?= $patient->getLastHeartRate() . " / " . $patient->getLastPressure()?> 
                 </div>
             </div>
         </div>
@@ -112,166 +118,24 @@
         <div class="sidebar">
             <div class="title">Données Laboratoire</div>
             <div class="scrollable">
+            <?php foreach($events->events_data as $event):?>
                 <div class="labo_data">
                     <div class="texte">
                         <div class="line">
-                            <div class="laboratoire">Date : <?php echo("2022-12-04")?></div>
+                            <div class="laboratoire">Date : <?= $event->getCharttime()?></div>
+                            <div class="secondary admission_id">Admission : <?=$event->getHadmId()?></div>
                         </div>
                         <div class="line">
-                            <div class="parametre">Data : <?php echo("PA Systolique");?> </div>
-                            <div class="valeur"><?php echo("127.00 mmHg")?></div>
+                            <div class="parametre">Data : <?= $event->getLabel()?></div>
+                            <div class="valeur"><?= $event->getCompleteDrug()?></div>
                         </div>
-                        <div class="line">
-                            <div class="reference">Référence : <?php echo("")?></div>
-                            <div class="observation"><?php echo('')?></div>
+                        <div class="line observations">
+                            <div class="secondary reference">Référence : <?= "référence"?></div>
+                            <div class="secondary observation"><?= "pas d'observation"?></div>
                         </div>
                     </div>
                 </div>
-
-                <div class="labo_data">
-                    <div class="texte">
-                        <div class="line">
-                            <div class="laboratoire">Date : <?php echo("2022-12-04")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="parametre">Data : <?php echo("PA Systolique");?> </div>
-                            <div class="valeur"><?php echo("127.00 mmHg")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="reference">Référence : <?php echo("")?></div>
-                            <div class="observation"><?php echo('')?></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="labo_data">
-                    <div class="texte">
-                        <div class="line">
-                            <div class="laboratoire">Date : <?php echo("2022-12-04")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="parametre">Data : <?php echo("PA Systolique");?> </div>
-                            <div class="valeur"><?php echo("127.00 mmHg")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="reference">Référence : <?php echo("")?></div>
-                            <div class="observation"><?php echo('')?></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="labo_data">
-                    <div class="texte">
-                        <div class="line">
-                            <div class="laboratoire">Date : <?php echo("2022-12-04")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="parametre">Data : <?php echo("PA Systolique");?> </div>
-                            <div class="valeur"><?php echo("127.00 mmHg")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="reference">Référence : <?php echo("")?></div>
-                            <div class="observation"><?php echo('')?></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="labo_data">
-                    <div class="texte">
-                        <div class="line">
-                            <div class="laboratoire">Date : <?php echo("2022-12-04")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="parametre">Data : <?php echo("PA Systolique");?> </div>
-                            <div class="valeur"><?php echo("127.00 mmHg")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="reference">Référence : <?php echo("")?></div>
-                            <div class="observation"><?php echo('')?></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="labo_data">
-                    <div class="texte">
-                        <div class="line">
-                            <div class="laboratoire">Date : <?php echo("2022-12-04")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="parametre">Data : <?php echo("PA Systolique");?> </div>
-                            <div class="valeur"><?php echo("127.00 mmHg")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="reference">Référence : <?php echo("")?></div>
-                            <div class="observation"><?php echo('')?></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="labo_data">
-                    <div class="texte">
-                        <div class="line">
-                            <div class="laboratoire">Date : <?php echo("2022-12-04")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="parametre">Data : <?php echo("PA Systolique");?> </div>
-                            <div class="valeur"><?php echo("127.00 mmHg")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="reference">Référence : <?php echo("")?></div>
-                            <div class="observation"><?php echo('')?></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="labo_data">
-                    <div class="texte">
-                        <div class="line">
-                            <div class="laboratoire">Date : <?php echo("2022-12-04")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="parametre">Data : <?php echo("PA Systolique");?> </div>
-                            <div class="valeur"><?php echo("127.00 mmHg")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="reference">Référence : <?php echo("")?></div>
-                            <div class="observation"><?php echo('')?></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="labo_data">
-                    <div class="texte">
-                        <div class="line">
-                            <div class="laboratoire">Date : <?php echo("2022-12-04")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="parametre">Data : <?php echo("PA Systolique");?> </div>
-                            <div class="valeur"><?php echo("127.00 mmHg")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="reference">Référence : <?php echo("")?></div>
-                            <div class="observation"><?php echo('')?></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="labo_data">
-                    <div class="texte">
-                        <div class="line">
-                            <div class="laboratoire">Date : <?php echo("2022-12-04")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="parametre">Data : <?php echo("PA Systolique");?> </div>
-                            <div class="valeur"><?php echo("127.00 mmHg")?></div>
-                        </div>
-                        <div class="line">
-                            <div class="reference">Référence : <?php echo("")?></div>
-                            <div class="observation"><?php echo('')?></div>
-                        </div>
-                    </div>
-                </div>
-
+            <?php endforeach;?>
                 
             </div>
         </div>

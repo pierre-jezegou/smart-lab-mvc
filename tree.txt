@@ -15,7 +15,8 @@
 │   │   ├── Patient.php
 │   │   ├── Patients.php
 │   │   ├── Pharmacist.php
-│   │   └── Precription.php
+│   │   ├── Prescription.php
+│   │   └── Prescriptions.php
 │   └── Router.php
 ├── composer.json
 ├── composer.lock
@@ -55,4 +56,4 @@
     ├── reset_password_done.php
     └── reset_password.php
 
-11 directories, 44 files
+11 directories, 45 files

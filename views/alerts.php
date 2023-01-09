@@ -1,4 +1,4 @@
-<?php $title = "Patients | SmartLab"?>
+<?php $title = "Alertes | SmartLab"?>
 <?php ob_start(); ?>
 
 <section class="page_patients table_page">

@@ -103,7 +103,8 @@ section.accueil {
   section.accueil h1 {
     text-align: center;
     font-weight: lighter;
-    font-size: 50px; }
+    font-size: 50px;
+    color: #13796b; }
   section.accueil .links {
     display: flex;
     flex-direction: row;
@@ -514,6 +515,10 @@ section.information {
         display: flex;
         flex-direction: row;
         justify-content: center; }
+        .page_patient .partient_informations .right-side a.red {
+          background-color: #ffa9a9; }
+          .page_patient .partient_informations .right-side a.red * {
+            color: #960000; }
       .page_patient .partient_informations .right-side .text {
         color: gray;
         font-size: small;
@@ -608,17 +613,23 @@ section.information {
     flex-direction: row;
     justify-content: space-between;
     /* background-color: red; */ }
+  .page_patient .prescriptions_data .sidebar .labo_data .texte .line .secondary {
+    color: gray;
+    font-size: x-small; }
+  .page_patient .prescriptions_data .sidebar .labo_data .texte .observations {
+    margin-top: 0.5em; }
+  .page_patient .labo_data:hover {
+    background-color: #ffdcc8; }
 
 div.error_container {
   text-align: center;
   display: flex;
   flex-direction: column;
   width: 300px;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 2rem;
   background-color: #FFFFFF;
   border-radius: 1rem;
-  margin: auto;
-  box-shadow: 0 0 5px gray; }
+  margin: auto; }
   div.error_container * {
     color: #1A9988;
     text-align: center;
@@ -636,7 +647,8 @@ div.error_container {
     color: white;
     padding-block: 0.5rem;
     text-align: center;
-    border: none; }
+    border: none;
+    margin-top: 1rem; }
     div.error_container button:hover {
       background-color: #d24d00; }
 

@@ -13,6 +13,7 @@
 
         <div class="right-topbar">
             <a href="<?=$_SERVER['REQUEST_URI']?>" class="navbar-button"><span class="material-symbols-outlined">sync </span></a>
+            <?php if(isset($_SESSION['isLogged']) and $_SESSION['isLogged']===true):?>
             <?php if($_SESSION["function"]==="Administrateur") echo('<a href="/admin" class="navbar-button"><span class="material-symbols-outlined">settings</span></a>')?>
             <a href="/logout" class="navbar-button"><span class="material-symbols-outlined">logout</span></a>
             <a href="/" class="navbar-button"><span class="material-symbols-outlined">home</span></a>
@@ -25,6 +26,9 @@
                     <p class="function"><?php echo $_SESSION["function"]?></p>
                 </div>
             </a>
+            <?php else:?>
+            <a href="/" class="navbar-button"><span class="material-symbols-outlined">help</span></a>
+            <?php endif;?>
         </div>
         
     </div>

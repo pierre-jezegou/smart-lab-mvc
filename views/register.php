@@ -16,10 +16,10 @@
                 <input type="phone" name="phone" required>
                 <p>Fonction</p>
                 <select class="menu" name="function" id="fonction">
-                    <option value="administrateur">Administrateur</option>
-                    <option value="pharmacien">Pharmacien</option>
-                    <option value="médecin">Médecin</option>
-                    <option value="etudiant">Etudiant</option>
+                    <option value="Administrateur">Administrateur</option>
+                    <option value="Pharmacien">Pharmacien</option>
+                    <option value="Médecin">Médecin</option>
+                    <option value="Étudiant">Etudiant</option>
                 </select>
                 <!-- <div class ="mdp">Mot de passe</div>
                 <input type="password" name="mdp"> -->
