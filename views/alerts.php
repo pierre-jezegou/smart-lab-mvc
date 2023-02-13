@@ -3,23 +3,22 @@
 
 <section class="page_patients table_page">
     <section>
-        <div class="header">
+        <div class="header"> <!-- Code le bandeau supérieur contenant le titre de la page -->
             <h1>Liste des alertes</h1>
             <div class="description">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-            </div>
+            Regroupe la liste de toutes les alertes détectées et qui restent à traiter.</div>
         </div>
         <div class="scrollable">
         <table class="prescriptions_table">
                     <thead>
-                        <tr class="ligne">
+                        <tr class="ligne"> <!-- Code le titre des lignes à affichées -->
                             <th>Alerte</th>
                             <th>id</th>
                             <th>N° Patient</th>
                             <th>Nom & Prénom</th>
-                            <th>Date Naissance</th>
+                            <th>Date de Naissance</th>
                             <th>Sexe</th>
-                            <th>Date début de prise</th>
+                            <th>Date de début de prise</th>
                             <th>Medicament</th>
                             <th>Posologie</th>
                             <th>Fréquence</th>
@@ -28,11 +27,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($prescriptions->prescriptions_data as $line):?>
+                    <?php foreach($prescriptions->prescriptions_data as $line):?> 
                         <?php
-                            $prescription = $line[0];
+                            $prescription = $line[0]; 
                             $patient = $line[1];
-                        ?>
+                        ?><!-- préparation des données pour leur affichage -->
                         <tr class="<?php if($prescription->getStatus()==="Invalide")"cancelled"?>">
                             <?php $alerts = $prescription->getAlert();?>
                             <td class="simple-item"><a href="/prescription/<?=$prescription->getRowId()?>" class="icon <?php if($alerts>0) echo("red"); else echo("green");?> material-symbols-outlined alert"><?php if($alerts>0) echo('error');else echo("priority_high");?></a></td>
@@ -51,7 +50,7 @@
                             <td><?= $prescription->getStatus()?></td>
                             <td><?= $prescription->getComment()?></td>
                         </tr>
-                    <?php endforeach;?>    
+                    <?php endforeach;?><!-- Code permettant de récupérer les données nécessaires au bon affichage de cette page -->
                     </tbody>
                 </table>
         </div>
