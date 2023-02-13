@@ -64,6 +64,28 @@ class Prescription
         return $this->alert;
     }
 
+    public function getAllData($prescription_id){
+        $pdo = connect_database();
+        $query = "SELECT * FROM `prescriptions` JOIN `alerts` ON row_id=prescription_id WHERE prescription_id=" . $prescription_id .";";
+        echo $query;
+        $data = $pdo->query($query)->fetch();
+        $this->setRowId($data["row_id"]);
+        $this->setSubject($data["subject_id"]);
+        $this->setStart($data["startdate"]);
+        $this->setEnd($data["enddate"]);
+        $this->setDrug($data["drug"]);
+        $this->setStrenght($data["prod_strength"]);
+        $this->setDose($data["dose_val_rx"]);
+        $this->setDoseUnit($data["dose_unit_rx"]);
+        $this->setFormUnit($data["form_unit_disp"]);
+        $this->setRoute($data["route"]);
+        $this->setStatus($data["status"]);
+        $this->setComment($data["comment"]);
+        $this->setAlert($data["alert"]);
+
+        return $this;
+    }
+
 
     // SET METHODS 
     public function setRowId($row_id){
@@ -102,7 +124,7 @@ class Prescription
     public function setComment($comment){
         $this->comment = $comment;
     }
-    public function setAlert(int $alert){
+    public function setAlert($alert){
         $this->alert = $alert;
     }
     

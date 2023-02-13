@@ -16,3 +16,5 @@ class PatientsController
         require_once APP_ROOT . '/views/patients.php';
 	}
 }
+
+

@@ -35,7 +35,7 @@
                         ?>
                         <tr class="<?php if($prescription->getStatus()==="Invalide")"cancelled"?>">
                             <?php $alerts = $prescription->getAlert();?>
-                            <td class="simple-item"><span class="icon <?php if($alerts>0) echo("red"); else echo("green");?> material-symbols-outlined alert"><?php if($alerts>0) echo('error');else echo("priority_high");?></span></td>
+                            <td class="simple-item"><a href="/prescription/<?=$prescription->getRowId()?>" class="icon <?php if($alerts>0) echo("red"); else echo("green");?> material-symbols-outlined alert"><?php if($alerts>0) echo('error');else echo("priority_high");?></a></td>
                             <td class="id_prescription"><?= $prescription->getRowId()?></td>
                             <td class="id_prescription"><?= $prescription->getSubject()?></td>
                             <td><?= $patient->getFullName()?></td>

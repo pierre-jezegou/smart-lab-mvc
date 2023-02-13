@@ -108,9 +108,23 @@ class Patient
     }
 
     public function read($id){
-        // require_once(A'')
         $pdo = connect_database();
         $query = "SELECT * FROM `patients` WHERE subject_id=" . $id .";";
+        $data = $pdo->query($query)->fetch();
+        $this->row_id = $data["row_id"];
+        $this->id = intval($data["subject_id"]);
+        $this->name = $data["name"];
+        $this->surname = $data["surname"];
+        $this->gender = $data["gender"];
+        $this->date_of_birth = $data["date_of_birth"];
+        $this->date_of_death = $data["date_of_death"];
+        $this->expire_flag = $data["date_of_death_hosp"];
+        return $this;
+    }
+
+    public function getPatientByPrescription($prescription_id){
+        $pdo = connect_database();
+        $query = "SELECT * FROM `patients` WHERE subject_id=(SELECT subject_id FROM `prescriptions` WHERE row_id=". $prescription_id . ");";
         $data = $pdo->query($query)->fetch();
         $this->row_id = $data["row_id"];
         $this->id = intval($data["subject_id"]);
@@ -145,6 +159,15 @@ class Patient
         $subject_id = $this->getPatientId();
         $pdo = connect_database();
         $query = "SELECT valuenum, valueuom FROM `chartevents` JOIN `d_items` ON chartevents.itemid=d_items.itemid WHERE subject_id=" . $subject_id . " AND label='Non Invasive Blood Pressure systolic'";
+        $data = $pdo->query($query)->fetch();
+
+        return $data["valuenum"] . " " . $data["valueuom"];
+    }
+
+    public function getLastINR(){
+        $subject_id = $this->getPatientId();
+        $pdo = connect_database();
+        $query = "SELECT valuenum, valueuom FROM `chartevents` JOIN `d_items` ON chartevents.itemid=d_items.itemid WHERE subject_id=" . $subject_id . " AND itemid=227467'";
         $data = $pdo->query($query)->fetch();
 
         return $data["valuenum"] . " " . $data["valueuom"];
@@ -343,6 +366,7 @@ class Admission{
     public function getLastAdmissionById(int $patient_id){
         $pdo = connect_database();
         $query = "SELECT * FROM `admissions` WHERE subject_id=". $patient_id ." ORDER BY admittime DESC LIMIT 1";
+
         $data = $pdo->query($query)->fetch();
         $this->row_id = $data["row_id"];
         $this->subject_id = $data["subject_id"];

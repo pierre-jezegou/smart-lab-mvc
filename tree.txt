@@ -12,6 +12,7 @@
 │   │   ├── RegisterController.php
 │   │   └── ResetpasswordController.php
 │   ├── Models
+│   │   ├── Events.php
 │   │   ├── Patient.php
 │   │   ├── Patients.php
 │   │   ├── Pharmacist.php
@@ -50,10 +51,12 @@
     ├── links.php
     ├── login.php
     ├── monitoring.php
+    ├── patient_alert.php
     ├── patient.php
+    ├── patient_prescriptions.php
     ├── patients.php
     ├── register.php
     ├── reset_password_done.php
     └── reset_password.php
 
-11 directories, 45 files
+11 directories, 48 files

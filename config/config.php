@@ -12,6 +12,7 @@ define('DB_HOST', '10.17.6.12');
 define('DB_USERNAME', 'smartlab');
 define('DB_PASSWORD', 'SmartLab2022');
 define('DB_NAME', 'smartlab');
+define('API_URL', 'http://api:8000');
 
 
 function connect_database(){

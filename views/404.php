@@ -6,14 +6,14 @@
     <p>Oops... La page que vous recherchez n'existe pas. </p>
     <p>
         Pour retourner à la page précédente, cliquer ici :<br>
-        <button onclick="rtn()">Retour</button>
+        <button onclick="last_page()">Retour</button>
     </p>
 </div>
 
 <script>
-    function rtn(){
-        window.history.back();
-    }
+    function last_page(){
+    window.history.back();
+}
 </script>
 
 <?php $content = ob_get_clean(); ?>

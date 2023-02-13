@@ -20,5 +20,9 @@
     </div>
 </section>
 
+<script>
+console.log("<?=$_SESSION["full_name"]?>");
+</script>
+
 <?php $content = ob_get_clean(); ?>
 <?php require('layout.php') ?>

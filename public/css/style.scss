@@ -9,9 +9,10 @@
 
 $green-living-lab:#1A9988;
 $orange-living-lab:#EB5600;
-$light-green:#e4fffb;
+$light-green:#cce8e2;
 $light-orange:#ffd6ac;
 $light-orange-table: #ffdcc8;
+$dark-green :#13796b;
 
 html, body {
     height: 100%;
@@ -21,7 +22,7 @@ html, body {
 }
 
 body{
-    background-color: #cce8e2;
+    background-color: $light-green;
     display: flex;
     flex-direction: column;
 
@@ -149,7 +150,7 @@ section.accueil{
         text-align: center;
         font-weight: lighter;
         font-size: 50px;
-        color: #13796b;
+        color: $green-living-lab
     }
 
     .links{
@@ -187,12 +188,39 @@ section.accueil{
                 border-top: 1px solid rgb(193, 193, 193);
                 padding-top: 1em;
                 text-align: justify;
+                position: relative;
             }
 
             .link-title{
                 font-size: larger;
                 text-align: center;
                 color: $green-living-lab;
+            }
+
+            .badge{
+                z-index: 1;
+                // color: rgb(100, 17, 17);
+                // background-color: #f15a5a;
+                color: white;
+                background-color: $orange-living-lab;
+                $height: 35px;
+                height: $height;
+                width: $height;
+                line-height: $height;
+                text-align: center;
+                font-size:medium;
+                font-weight: bold;
+                border-radius: 50%;
+                padding: 1rem;
+                position: absolute;
+                top: -205px;
+                right: -30px;
+                box-shadow: 0 0 10px rgba(112, 5, 5, 0.552);
+                transition: 0.2s ease-in-out;
+
+                &:hover{
+                    transform: scale(1.1);
+                }
             }
         }
     }
@@ -215,14 +243,69 @@ section.login{
     display: flex;
     justify-content: center;
     height: 80vh;
-
+    
     div.container{
         display: flex;
         flex-direction: column;
         justify-content: center;
         height: 80vh;
+        
         .erreur_form{
             text-align: center;
+        }
+        
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            max-width: 350px;
+            height: 350px;
+            padding: 2em;
+            background: linear-gradient(180deg, #4C9E8E 0%, #F4D496 49.48%, #FFAB6F 100%);
+            // backdrop-filter: blur(2px);
+            align-items: center;
+            border-radius: 1.5rem;
+            
+            h1{
+                text-align: center;
+                font-weight: lighter;
+                font-size: 50px;
+                color: $dark-green
+            }
+
+            div{
+                display: flex;
+                flex-direction: column;
+            
+            }
+            label{
+                color:$dark-green;
+                /* font-weight: bold; */
+                margin-block: 0.5em;
+            }
+            
+            .champs_saisie{
+                height: 3em;
+                line-height: em;
+                border: none;
+                font-size: medium;
+                padding-inline: 1em;
+                width: 300px;
+            }
+            
+            #submit{
+                width: 150px;
+                margin-top: 1rem;
+                
+                border: none;
+                color: white;
+                background-color: #EB5600;
+                border-radius: 0.3em;
+                /* font-weight: bold; */
+                font-size: medium;
+                padding-block: 0.5em;
+                text-align: center;
+            }
         }
     }
 }
@@ -230,60 +313,8 @@ section.login{
 
 
 
-.login_form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    max-width: 350px;
-    height: 350px;
-    padding: 2em;
-    background: linear-gradient(180deg, #4C9E8E 0%, #F4D496 49.48%, #FFAB6F 100%);
-    backdrop-filter: blur(2px);
-    align-items: center;
-}
-
-.login_form h1, .login_form #submit{
-    text-align: center;
-}
-
-.login_form div{
-    display: flex;
-    flex-direction: column;
-
-}
 
 
-.login_form label{
-    color:#13796b;
-    /* font-weight: bold; */
-    margin-block: 0.5em;
-}
-
-.login_form .champs_saisie{
-    height: 3em;
-    line-height: em;
-    border: none;
-    font-size: medium;
-    padding-inline: 1em;
-    width: 300px;
-}
-
-.login_form #submit{
-    width: 150px;
-    border: none;
-    color: white;
-    background-color: #EB5600;
-    border-radius: 0.3em;
-    /* font-weight: bold; */
-    font-size: medium;
-    padding-block: 0.5em;
-}
-
-.login_form h1{
-    color: #13796b;
-    font-size: xx-large;
-    font-weight: 500;
-}
 
 
 .page_connexion{
@@ -438,6 +469,135 @@ section.table_page{
     display: flex;
     flex-direction: column;
 
+    &.prescription_page{
+        
+        div.form-div{
+            background-color: rgb(247, 247, 247);
+            border-radius: 2rem;
+            padding: 4rem;
+            border: 3px solid $green-living-lab;
+            max-width: 500px;
+            margin: 0 auto;
+            margin-top: 2rem;
+
+            form .forme{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .group1
+            {
+                margin-left: 6em;
+                margin-top: 1.3em;
+                vertical-align:super;
+            }
+            
+            h1 {
+                font-weight: lighter;
+                margin-block: 1rem;
+                text-align: center;
+                font-size: x-large;
+                color:$green-living-lab
+            }
+
+            input { 
+                width: auto;
+                padding:0.5em; 
+                border: none;
+                border-bottom: 2px solid #EB5600;
+                margin-bottom: 2%;
+                margin-top: 2%;
+                outline : none;
+                color:#000000;
+            }
+
+            .choix {
+                display:flex;
+                flex-direction: column;
+                padding: 1rem;
+                border-radius: 1rem;
+                max-width: 150px; 
+                border: 1px solid $orange-living-lab;
+                outline : none;
+                color:#000000;
+                font-size: small;
+
+                .choice-temp{
+                    display: flex;
+                    vertical-align:middle;
+                    
+                    label{
+                        vertical-align: middle;
+                    }
+                }
+            }
+        
+            select {
+                border: 1px solid #EB5600;
+                margin-bottom: 0.2em;
+                margin-top: 0.2em;
+                outline : none;
+                color:#000000;
+                padding: 0.4em;
+            }
+        }
+
+
+
+    
+
+    
+    
+    
+    
+        .validation
+        {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-align: center ;
+
+            input{
+                margin: 1em;
+                padding-bottom: 1em;
+                padding: 0.8em;
+                border-radius: 4px;
+                // font-weight: bold;
+                // box-shadow: 3px 3px 0px rgb(169, 167, 167);
+                // color :#ffffff;
+                border: none;
+                
+                &.alert{
+                    background-color: #e68750;
+                    
+                    &:hover{
+                        background-color: rgba(241, 143, 39, 0.96);
+                    }
+                }
+
+            
+                &.validate{
+                    background-color: #5bb744;
+                    
+                    &:hover{
+                        background-color: #99c98d;
+                    }
+                }
+            
+                &.refuse{
+                    background-color: #df7878;
+                    
+                    &:hover{
+                        background-color: rgba(206, 115, 97, 0.96);
+                    }
+                }
+            }
+        }
+    }
+
     .header{
         h1{
             font-size: x-large;
@@ -448,6 +608,33 @@ section.table_page{
             font-size: x-small;
             text-align: justify;
             padding-bottom: 2em;
+        }
+
+        display: flex;
+
+        .icon_back{
+            display: flex;
+            flex-direction: row;
+            padding-inline: 0.5em;
+            border-radius: 0.3em;
+            background-color: $light-orange;
+            line-height: 2.5rem;
+            vertical-align: middle;
+            margin-right: 1.5rem;
+
+            >*{
+                color: $orange-living-lab;
+            }
+
+            p{
+                font-weight: bold;
+            }
+
+            .icon{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
         }
     }
     
@@ -936,6 +1123,8 @@ div.error_container{
         }
     }
 }
+
+
 
 
 

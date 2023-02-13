@@ -33,6 +33,28 @@ class Pharmacist
         return $pdo->query($query)->rowCount();
     }
 
+
+    public function getUserById($id){
+        $pdo = connect_database();
+        $query = "SELECT * FROM `users` WHERE id='$id'";
+        $result = $pdo->query($query)->fetch();
+        $this->name = $result["name"];
+        $this->surname = $result["surname"];
+        $this->email = $result["email"];
+        $this->handled_alerts = $result["handled_alerts"];
+        $this->archived_alerts = $result["archived_alerts"];
+        $this->function = $result["status"];
+        $this->admin = $result["admin"];
+        return $this;
+    }
+
+    public function getRemainingAlerts(){
+        $pdo = connect_database();
+        $query = "SELECT COUNT(*) FROM `prescriptions` JOIN `alerts` ON row_id=prescription_id WHERE alert=1";
+        $result = $pdo->query($query)->fetch();
+        return $result["COUNT(*)"];
+    }
+
     public function getUsername(){
         return $this->username;
     }
@@ -172,6 +194,6 @@ class Pharmacist
         var_dump($postdata);
 
         $context = stream_context_create($opts);
-        $result = file_get_contents('http://projet-livinglab.rezoleo.fr:8000/welcome/', false, $context);
+        $result = file_get_contents(API_URL.'/welcome/', false, $context);
     }
 }

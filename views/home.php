@@ -9,7 +9,10 @@
         <a class="alerts" href="alerts">
             <span class="material-symbols-outlined">warning</span>
             <div class="link-title">Alertes</div>
-            <div class="description">Texte de description de l'unité de direction (description des alertes et autres informations nécessaires à la compréhension du logiciel</div>
+            <div class="description">
+                Texte de description de l'unité de direction (description des alertes et autres informations nécessaires à la compréhension du logiciel
+                <span class="badge"><?=$remaining_alerts?></span>
+            </div>
         </a>
         <a class="actions" href="patients">
             <span class="material-symbols-outlined">person</span>

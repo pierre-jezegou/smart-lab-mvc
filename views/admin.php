@@ -11,7 +11,7 @@
         </a>
         <a class="actions" href="statistics">
             <span class="material-symbols-outlined">query_stats</span>
-            <div class="link-title">Satistiques</div>
+            <div class="link-title">Statistiques</div>
             <div class="description">Vue d'ensemble des opérations des utilisateurs</div>
         </a>
         <a class="dossiers" href="index">

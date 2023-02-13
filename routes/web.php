@@ -7,12 +7,12 @@ use Symfony\Component\Routing\RouteCollection;
 $routes = new RouteCollection();
 //Pages pharmacien
 $routes->add('homepage', new Route(constant('URL_SUBFOLDER') . '/', array('controller' => 'PageController', 'method'=>'indexAction'), array()));
-$routes->add('patient', new Route(constant('URL_SUBFOLDER') . '/patient/{id}', array('controller' => 'PatientController', 'method'=>'showAction'), array('id' => '[0-9]+')));
-$routes->add('alert', new Route(constant('URL_SUBFOLDER') . '/alert/{id}', array('controller' => 'AlertController', 'method'=>'showAction'), array('id' => '[0-9]+')));
+$routes->add('patient', new Route(constant('URL_SUBFOLDER') . '/patient/{id}', array('controller' => 'PatientController', 'method'=>'PrescriptionsAction'), array('id' => '[0-9]+')));
+$routes->add('alert', new Route(constant('URL_SUBFOLDER') . '/alert/{prescription_id}', array('controller' => 'PatientController', 'method'=>'AlertAction'), array('prescription_id' => '[0-9]+')));
 $routes->add('alerts', new Route(constant('URL_SUBFOLDER') . '/alerts', array('controller' => 'AlertsController', 'method'=>'indexAction'), array()));
 $routes->add('patients', new Route(constant('URL_SUBFOLDER') . '/patients', array('controller' => 'PatientsController', 'method'=>'indexAction'), array()));
 
-$routes->add('precription', new Route(constant('URL_SUBFOLDER') . '/prescription/{id}', array('controller' => 'PrescriptionController', 'method'=>'indexAction'), array()));
+$routes->add('precription', new Route(constant('URL_SUBFOLDER') . '/prescription/{id}', array('controller' => 'PatientController', 'method'=>'PrescriptionAction'), array()));
 $routes->add('edit_prescription', new Route(constant('URL_SUBFOLDER') . '/prescriptions/{id}/edit', array('controller' => 'EditPrescriptionController', 'method'=>'indexAction'), array()));
 
 
