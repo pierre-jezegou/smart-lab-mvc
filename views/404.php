@@ -10,11 +10,11 @@
     </p>
 </div>
 
-<script> <!-- code permettant au bouton Retour de fonctionner, accède à la page précédente -->
+<script> 
     function last_page(){
     window.history.back();
 }
-</script>
+</script> <!-- code permettant au bouton Retour de fonctionner, accède à la page précédente -->
 
 <?php $content = ob_get_clean(); ?> <!-- signale la fin du code à fournir -->
 <?php require('layout.php') ?>
