@@ -1,7 +1,7 @@
 <?php $title = "Page non trouvée | SmartLab"?>
-<?php ob_start(); ?>
+<?php ob_start(); ?> <!--permet de fournir le contenu de la page au layout-->
 
-<div class="error_container">
+<div class="error_container"> <!-- on définit ici le conteneur principal, où on trouve tout le texte et le bouton -->
     <h1>Erreur 404</h1>
     <p>Oops... La page que vous recherchez n'existe pas. </p>
     <p>
@@ -10,11 +10,11 @@
     </p>
 </div>
 
-<script>
+<script> <!--code permettant au bouton Retour de fonctionner, accède à la page précédente-->
     function last_page(){
     window.history.back();
 }
 </script>
 
-<?php $content = ob_get_clean(); ?>
+<?php $content = ob_get_clean(); ?> <!--signale la fin du code à fournir-->
 <?php require('layout.php') ?>
